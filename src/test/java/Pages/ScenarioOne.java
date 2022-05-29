@@ -20,6 +20,9 @@ public class ScenarioOne extends AbstractPage {
     @FindBy(xpath = "//span[text()='More']")
     private Button clickMore;
 
+    @FindBy(xpath = "//table[@class='table-data-sheet']")
+    private HtmlElement dataSheet;
+
     @FindBy(xpath = "//td[text()='Compositions']/following-sibling::td")
     private HtmlElement compositionsValue;
 
@@ -56,7 +59,7 @@ public class ScenarioOne extends AbstractPage {
         clickMore.click();
     }
 
-    //3 methods below for get elements value from page
+    //4 methods below for get elements value from page
     public String getCompositionsText() {
         return compositionsValue.getText();
     }
@@ -67,6 +70,9 @@ public class ScenarioOne extends AbstractPage {
 
     public String getPropertiesText() {
         return propertiesValue.getText();
+    }
+    public String getDataSheetText() {
+        return dataSheet.getText();
     }
 
     //methods for wait before elements loads
@@ -84,6 +90,8 @@ public class ScenarioOne extends AbstractPage {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(visibilityOfElementLocated(By.xpath("//span[text()='More']")));
     }
+
+
 
 
 }
