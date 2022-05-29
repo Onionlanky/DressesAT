@@ -121,6 +121,7 @@ public class ScenariosTest extends BaseTest {
         //wait until product deleted
         onScenarioThreePage().waitUntilCartEmpty(driver);
         //Assertions
+        Assertions.assertEquals(true, onScenarioThreePage().deleteMessagePresented());
         Assertions.assertEquals("Your shopping cart is empty.", onScenarioThreePage().getDeleteMessage(), "Value not equals");
         Assertions.assertEquals("(empty)", onScenarioThreePage().getCartEmptyMessage(), "Value not equals");
     }

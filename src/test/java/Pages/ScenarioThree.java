@@ -52,9 +52,14 @@ public class ScenarioThree extends AbstractPage {
         return cartEmptyMessage.getText();
     }
 
+    public Boolean deleteMessagePresented() {
+        return cartEmptyMessage.isDisplayed();
+    }
+
     //method for wait element load
     public void waitUntilCartEmpty(WebDriver driver) {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".alert.alert-warning")));
     }
+
 }
